@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rush:
+    build:
+      context: .
+    ports:
+      - 8081:8081
+    depends_on:
+      - rush-mysql
+    links:
+      - rush-mysql:rush-mysql
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_USER=dbuser
+      - DATABASE_PASSWORD=dbp4ss
+      - DATABASE_NAME=mysql
+      - DATABASE_PORT=3306
+  rush-mysql:
+    image: mysql:latest
+    environment:
+    - MYSQL_ROOT_PASSWORD=12345
+    - MYSQL_DATABASE=semrushDB
+    - MYSQL_PASSWORD=12345
+    ports:
+      - 3306:3306
