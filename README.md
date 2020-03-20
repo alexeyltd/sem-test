@@ -1,4 +1,4 @@
-# semrush - test case interview
+# sem - test case interview
 
 startup the application
 
